@@ -1,7 +1,7 @@
 <div class="card col-sm-5 mx-auto mt-5">
   <div class="card-body">
     <h3 class="mt-1 mb-3">ログイン</h3>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_with model: @user, url: user_session_path, id: "new_user", class: "new_user", local: true do |f| %>
     <div class="form-group">
       <%= f.label :email, "メールアドレス", :class => "form-label" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control" %>
