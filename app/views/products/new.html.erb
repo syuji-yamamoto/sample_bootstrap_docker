@@ -4,6 +4,7 @@
 <table class="table">
   <thead>
     <tr>
+			<th width="60px">登録</th>
       <th>商品名</th>
       <th>商品名カナ</th>
       <th>金額</th>
@@ -12,6 +13,9 @@
   <tbody class="bulk-registration-form">
     <%= form.fields_for :products do |f| %>
     <tr class="product">
+		  <td class="text-center">
+				<%= f.check_box :availability, class: 'top10 registration-checkbox' %>
+			</td>
       <td>
         <%= f.text_field :name, class: 'form-control' %>
       </td>
@@ -20,6 +24,9 @@
       </td>
       <td>
         <%= f.text_field :price, class: 'form-control' %>
+      </td>
+			<td>
+        <%= f.hidden_field :user_id, value: @current_user, class: 'form-control' %>
       </td>
     </tr>
     <% end %>
